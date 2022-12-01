@@ -20,10 +20,29 @@ export const Clientes = () => {
     const modal = document.getElementById("modalEditarTransporte");
     const modalInstance = new bootstrap.Modal(modal);
     modalInstance.show();
-    
+
     let transpor2 = [...transportadora];
-    let result = transpor2.filter((item) => item.id_transporte === id);
-    console.log(result);
+    let transporteFiltrado = transpor2.filter((item) => item.id_transporte === id);
+    console.log(transporteFiltrado);
+
+    document.getElementById("inpNombreEditarTransportadora").value =
+      transporteFiltrado[0].nombre;
+    document.getElementById("inpTelefonoEditarTransportadora").value =
+      transporteFiltrado[0].telefono;
+    document.getElementById("inpCelularEditarTransportadora").value =
+      transporteFiltrado[0].celular;
+    document.getElementById("inpNombreContactoEditarTransportadora").value =
+      transporteFiltrado[0].nombre_contacto;
+    document.getElementById("inpDireccionEditarTransportadora").value =
+      transporteFiltrado[0].direccion;
+    document.getElementById("inpTelefonoOpcionalEditarTransportadora").value =
+      transporteFiltrado[0].tel_opcional;
+    
+    if (transporteFiltrado[0].id_pais == 1) {
+      document.getElementById("selectProvEditarTransportadora").value = 1;
+    } else {
+      document.getElementById("selectProvEditarTransportadora").value = 2;
+    }
   };
 
   return (

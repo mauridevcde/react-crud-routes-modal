@@ -3,7 +3,7 @@ export const ModalBoostrap = () => {
     <div
       className="modal fade"
       id="modalEditarTransporte"
-      tabindex="-1"
+      tabIndex="-1"
       role="dialog"
       aria-labelledby="productoNuevoModalLabel"
       aria-hidden="true"
@@ -29,7 +29,7 @@ export const ModalBoostrap = () => {
                   <div className="row">
                     <div className="col">
                       <div className="form-group">
-                        <label for="inpNombreEditarTransportadora">
+                        <label>
                           Nombre:
                         </label>
                         <input
@@ -43,7 +43,7 @@ export const ModalBoostrap = () => {
                       </div>
 
                       <div className="form-group">
-                        <label for="inpTelefonoEditarTransportadora">
+                        <label >
                           Telefono
                         </label>
                         <input
@@ -57,7 +57,7 @@ export const ModalBoostrap = () => {
                       </div>
 
                       <div className="form-group">
-                        <label for="inpCelularEditarTransportadora">
+                        <label >
                           Celular
                         </label>
                         <input
@@ -71,7 +71,7 @@ export const ModalBoostrap = () => {
                       </div>
 
                       <div className="form-group">
-                        <label for="inpNombreContactoEditarTransportadora">
+                        <label >
                           Nombre - Contacto
                         </label>
                         <input
@@ -84,7 +84,7 @@ export const ModalBoostrap = () => {
                         </small>
                       </div>
                       <div className="form-group">
-                        <label for="lblObs">Observaciones</label>
+                        <label >Observaciones</label>
                         <textarea
                           className="form-control"
                           placeholder=""
@@ -94,7 +94,7 @@ export const ModalBoostrap = () => {
                     </div>
                     <div className="col">
                       <div className="form-group">
-                        <label for="inpDireccionEditarTransportadora">
+                        <label >
                           Direccion
                         </label>
                         <input
@@ -107,7 +107,7 @@ export const ModalBoostrap = () => {
                         </small>
                       </div>
                       <div className="form-group">
-                        <label for="inpTelefonoOpcionalEditarTransportadora">
+                        <label >
                           Telefono Opcional
                         </label>
                         <input
@@ -120,7 +120,7 @@ export const ModalBoostrap = () => {
                         </small>
                       </div>
                       <div className="form-group">
-                        <label for="inpNacionalidadEditarTransportadora">
+                        <label >
                           Nacionalidad
                         </label>
                         <select
