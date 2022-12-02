@@ -1,50 +1,23 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getAllClientes } from "../../apis/getAllClientes";
+import { useForm } from "../../customHooks/useForm";
 import { NavBar } from "../../layout/NavBar";
 import { ModalBoostrap } from "./ModalBoostrap";
 
 export const Clientes = () => {
   const [transportadora, settransportadora] = useState([]);
+  const [idTran, setIdTran] = useState(0);
   useEffect(() => {
     const fetchClientes = async () => {
       const { result } = await getAllClientes();
-      // console.log(result);
 
       settransportadora(result);
     };
     fetchClientes();
   }, []);
-
-  const editarTransporte = (id) => {
-    console.log(id);
-    const modal = document.getElementById("modalEditarTransporte");
-    const modalInstance = new bootstrap.Modal(modal);
-    modalInstance.show();
-
-    let transpor2 = [...transportadora];
-    let transporteFiltrado = transpor2.filter((item) => item.id_transporte === id);
-    console.log(transporteFiltrado);
-
-    document.getElementById("inpNombreEditarTransportadora").value =
-      transporteFiltrado[0].nombre;
-    document.getElementById("inpTelefonoEditarTransportadora").value =
-      transporteFiltrado[0].telefono;
-    document.getElementById("inpCelularEditarTransportadora").value =
-      transporteFiltrado[0].celular;
-    document.getElementById("inpNombreContactoEditarTransportadora").value =
-      transporteFiltrado[0].nombre_contacto;
-    document.getElementById("inpDireccionEditarTransportadora").value =
-      transporteFiltrado[0].direccion;
-    document.getElementById("inpTelefonoOpcionalEditarTransportadora").value =
-      transporteFiltrado[0].tel_opcional;
-    
-    if (transporteFiltrado[0].id_pais == 1) {
-      document.getElementById("selectProvEditarTransportadora").value = 1;
-    } else {
-      document.getElementById("selectProvEditarTransportadora").value = 2;
-    }
+  const datosaModal = (id) => {
+    setIdTran(id);
   };
-
   return (
     <>
       <NavBar />
@@ -78,11 +51,11 @@ export const Clientes = () => {
                 <td>
                   <button
                     className="btn btn-primary"
-                    // data-bs-toggle="modal"
-                    // data-bs-target="#modalEditarTransporte"
-                    onClick={() =>
-                      editarTransporte(transportadora.id_transporte)
-                    }
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalEditarTransporte"
+                    onClick={() => {
+                      datosaModal(transportadora.id_transporte);
+                    }}
                   >
                     Editar
                   </button>
@@ -98,7 +71,7 @@ export const Clientes = () => {
           })}
         </tbody>
       </table>
-      <ModalBoostrap />;
+      <ModalBoostrap contenido={transportadora} idTran={idTran} />
     </>
   );
 };
